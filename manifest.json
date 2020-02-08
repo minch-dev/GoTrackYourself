@@ -1,0 +1,18 @@
+{
+    "name": "GoTrackYourself!",
+    "short_name": "GoTrackYourself!",
+    "version": "192.168.0.1",
+    "options_page": "opt.htm",
+    "manifest_version": 2,
+	"background": {
+		"scripts": [ "msg.js","bg.js" ]
+	},
+    "permissions": ["storage","unlimitedStorage"],
+	"content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
+    "browser_action": {
+        "default_title": "Go",
+        "default_icon": "images/play.png",
+        "default_popup": "pop.htm"
+    }
+    
+}

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="referrer" content="no-referrer" />
+<link id="favicon" rel="icon" type="image/png" href="images/stop.png">
+<link rel="stylesheet" href="opt.css">
+<script src="jquery-2.2.4.min.js"></script>
+<script src="vue.min.js"></script>
+<script src="moment-with-locales.min.js"></script>
+<script src="msg.js"></script>
+
+<title>GoTrackYourself</title>
+</head>
+<body>
+
+
+
+	<input type="button" value="&#9658;" id="task_start">
+	<input type="button" value="&#10074; &#10074;" id="task_pause">
+	<input type="hidden" value="0" id="task_id">
+	<input type="text" value="recoloring..." placeholder="recolor 1" id="task_name">
+	<input type="text" value="timer;programming;" placeholder="" id="task_tags">
+	<input type="text" value="" placeholder="time spent" id="task_display">
+	<input type="button" value="■" id="task_stop">
+
+<div id="excel">
+	<table>
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>name</th>
+				<th>tags</th>
+				<th>chunks</th>
+				<th>started</th>
+				<th>ended</th>
+				<th>total</th>
+				<th>state</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr v-bind:class="'task-' + task.id" v-for="task in timesheet">
+				<td>{{task.id}}</td>
+				<td>{{task.name}}</td>
+				<td>{{task.tags}}</td>
+				<td>
+					<span v-for="(to,from) in task.time_frames">
+						<time v-bind:datetime="from">{{from | localaze_date}}</time>:<time v-bind:datetime="to">{{to | localaze_date}};</time><br>
+					</span>
+				</td>
+				<td>{{task.time_started | localaze_date}}</td>
+				<td>{{task.time_ended| localaze_date}}</td>
+				<td>{{task.time_to_add | total_time}}</td>
+				<td>{{task.state | task_state}}</td>
+			</tr>
+		</tbody>
+		<tfoot></tfoot>
+	</table>
+</div>
+
+<script src="opt.js"></script>
+</body>
+</html>
