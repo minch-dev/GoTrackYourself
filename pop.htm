@@ -4,24 +4,21 @@
 <meta charset="utf-8">
 <meta name="referrer" content="no-referrer" />
 <link id="favicon" rel="icon" type="image/png" href="images/stop.png">
-<link rel="stylesheet" href="pop.css">
+<link rel="stylesheet" href="opt.css">
 <script src="jquery-2.2.4.min.js"></script>
 <script src="msg.js"></script>
 <script src="pop.js"></script>
 <title>15min</title>
 </head>
 <body>
-
-
-
-	<button id="task_start"></button>
-	<button id="task_pause"></button>
+	<input type="button" value="▶️" id="task_start">
+	<input type="button" value="⏸️" id="task_pause">
 	<input type="hidden" value="0" id="task_id">
+	<!--a href="opt.htm" target="GoTrackYourselfOptions">history</a-->
+	<input type="button" value="📄" id="task_list_open" title="task history spreadsheet">
 	<input type="text" value="recoloring..." placeholder="recolor 1" id="task_name">
 	<input type="text" value="timer;programming;" placeholder="" id="task_tags">
 	<input type="text" value="" placeholder="time spent" id="task_display">
-	<button id="task_stop"></button>
-
-
+	<input type="button" value="⏹️" id="task_stop">
 </body>
 </html>

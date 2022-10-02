@@ -1,0 +1,45 @@
+body{
+	font-size: 1em;
+}
+
+input{
+	vertical-align: middle;
+}
+
+table{
+	border: solid;
+	border-collapse: collapse;
+	border-spacing: 0.2em;
+}
+td,th{
+	border: solid 1px;
+	padding:0.5em;
+}
+input[type="button"]{
+	font-size: 2em;
+	border:none;
+	padding:0px;
+	background:none;
+    line-height: 0;
+    height: 1.5em;
+}
+#task_name{
+	width: 28em;
+}
+#task_tags{
+	width: 14em;
+}
+#task_display{
+	width: 8em;
+}
+.chunks li{
+    background:#cfe6ff;
+    padding: 0.2em 0.4em;
+    border-radius: 0.6em;
+}
+.chunks li+li{
+	margin-top:0.25em;
+}
+ol,ul{
+	margin:0;
+}

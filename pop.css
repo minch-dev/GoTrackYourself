@@ -8,27 +8,3 @@ button{
     padding: 0;
     width: 22px;
 }
-button:before{
-	content:"";
-	display:inline-block;
-	vertical-align: middle;
-}
-
-
-button#task_start:before{
-	content:"●";
-	color:red;
-    font-size: 28px;
-}
-
-button#task_stop:before{
-	content:"■";
-	font-size: 26px;
-    margin-top: -0.25em;
-}
-
-button#task_pause:before{
-    content: "▌▌";
-    font-size: 11px;
-    margin-right: -0.3em;
-}

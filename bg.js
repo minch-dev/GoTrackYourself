@@ -1,21 +1,21 @@
 const ext_link = "";
-const CHIMES	= new Audio(ext_link+"audio/CHIMES.WAV");
-const CHORD		= new Audio(ext_link+"audio/CHORD.WAV");
+//const CHIMES	= new Audio(ext_link+"audio/CHIMES.WAV");
+//const CHORD		= new Audio(ext_link+"audio/CHORD.WAV");
 const CLICK		= new Audio(ext_link+"audio/CLICK.WAV");
-const DING		= new Audio(ext_link+"audio/DING.WAV");
-const LOGON		= new Audio(ext_link+"audio/LOGON.WAV");
+//const DING		= new Audio(ext_link+"audio/DING.WAV");
+//const LOGON		= new Audio(ext_link+"audio/LOGON.WAV");
 const NOTIFY	= new Audio(ext_link+"audio/NOTIFY.WAV");
 const RECYCLE	= new Audio(ext_link+"audio/RECYCLE.WAV");
 const SWIPE		= new Audio(ext_link+"audio/SWIPE.WAV");
-const TADA		= new Audio(ext_link+"audio/TADA.WAV");
+//const TADA		= new Audio(ext_link+"audio/TADA.WAV");
 
 const STOP = 'STOP';
 const PLAY = 'PLAY';
 const PAUSE = 'PAUSE';
 const STATES = {
-	STOP:{url:ext_link+"images/stop.png",color:'#000'},
-	PLAY:{url:ext_link+"images/play.png",color:'#F00'},
-	PAUSE:{url:ext_link+"images/pause.png",color:'#00F'}
+	STOP:{url:ext_link+"images/stop.png",color:'#539ddb'},
+	PLAY:{url:ext_link+"images/play.png",color:'#e80061'},
+	PAUSE:{url:ext_link+"images/pause.png",color:'#b5e61d'}
 }
 
 var LASTTASK = {};
@@ -245,7 +245,13 @@ function sum_finished_chunks(task){
 		} else {
 			task.frame_started = frame_start;
 		}
+		
 	}
+/* 	if(task.frame_started>0){
+		task.display_time_string = get_time((get_unix_time() - task.frame_started) + task.time_to_add);
+	} else {
+		task.display_time_string = get_time(task.time_to_add);
+	} */
 	return task;
 }
 

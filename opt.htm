@@ -15,15 +15,15 @@
 <body>
 
 
-
-	<input type="button" value="&#9658;" id="task_start">
-	<input type="button" value="&#10074; &#10074;" id="task_pause">
+<div id="controls">
+	<input type="button" value="▶️" id="task_start">
+	<input type="button" value="⏸️" id="task_pause">
 	<input type="hidden" value="0" id="task_id">
 	<input type="text" value="recoloring..." placeholder="recolor 1" id="task_name">
 	<input type="text" value="timer;programming;" placeholder="" id="task_tags">
 	<input type="text" value="" placeholder="time spent" id="task_display">
-	<input type="button" value="■" id="task_stop">
-
+	<input type="button" value="⏹️" id="task_stop">
+</div>
 <div id="excel">
 	<table>
 		<thead>
@@ -34,7 +34,7 @@
 				<th>chunks</th>
 				<th>started</th>
 				<th>ended</th>
-				<th>total</th>
+				<th>spent</th>
 				<th>state</th>
 			</tr>
 		</thead>
@@ -44,12 +44,14 @@
 				<td>{{task.name}}</td>
 				<td>{{task.tags}}</td>
 				<td>
-					<span v-for="(to,from) in task.time_frames">
-						<time v-bind:datetime="from">{{from | localaze_date}}</time>:<time v-bind:datetime="to">{{to | localaze_date}};</time><br>
-					</span>
+					<ol class="chunks">
+						<li v-for="(to,from) in task.time_frames">
+							<time v-bind:datetime="from">{{from | localize_date}}</time><br><time v-bind:datetime="to">{{to | localize_date}}</time>
+						</li>
+					</ol>
 				</td>
-				<td>{{task.time_started | localaze_date}}</td>
-				<td>{{task.time_ended| localaze_date}}</td>
+				<td>{{task.time_started | localize_date}}</td>
+				<td>{{task.time_ended | localize_date}}</td>
 				<td>{{task.time_to_add | total_time}}</td>
 				<td>{{task.state | task_state}}</td>
 			</tr>

@@ -25,6 +25,15 @@ window.onload = function(){
 	$('body').on('click','#task_start',function(event){
 		message('task_play',get_task_object());
 	});
+	$('body').on('click','#task_list_open',function(event){
+		chrome.runtime.openOptionsPage();	//won't load spreadsheet
+		//var opt = window.open("opt.htm","GoTrackYourselfOptions");
+		//a hack to force it to load the spreadsheet
+		//no idea why it doesn't the first time you open the page
+		//opt.addEventListener('load', function(){
+		//	alert(0);
+		//}, false);
+	});
 
 	$('body').on('click','#task_stop',function(event){
 		message('task_stop',get_task_object());

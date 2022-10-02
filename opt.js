@@ -30,14 +30,14 @@ const app  = new Vue({
 		timesheet:[]
 	},
 	filters: {
-		localaze_date:function(timestamp){
+		localize_date:function(timestamp){
 			timestamp = parseInt(timestamp);
 			if(timestamp==-1) timestamp = "-/-";
-			else if(timestamp!=0) timestamp  = moment(timestamp);
+			else if(timestamp!=0) timestamp  = moment(timestamp).format('LLLL');
 			return timestamp;
 		},
 		total_time:function(timestamp){
-			return moment(parseInt(timestamp)).format('H:mm:ss');
+			return moment.utc(parseInt(timestamp)).format('H:mm:ss');
 		},
 		task_state:function(state){
 			var str  =  '';
@@ -59,9 +59,12 @@ const app  = new Vue({
 
 
 window.onload = function(){
-	message('fetch_timesheet',{},function(timesheet){
-		app.timesheet = timesheet;
-	});
+	window.setTimeout(function(){
+		message('fetch_timesheet',{},function(timesheet){
+			app.timesheet = timesheet;
+		});
+	},500);
+
 	message('init_task_details');
 	$('body').on('input','#task_name,#task_tags',function(event){
 		message('task_change',get_task_object());
