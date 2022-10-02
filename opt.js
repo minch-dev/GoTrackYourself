@@ -55,29 +55,30 @@ const app  = new Vue({
 		});
 	}*/
 });
-
+function refresh_spreadsheet(){
+	message('fetch_timesheet',{},function(timesheet){
+		app.timesheet = timesheet;
+		console.log('spreadsheet refreshed');
+	});
+}
 
 
 window.onload = function(){
-	window.setTimeout(function(){
-		message('fetch_timesheet',{},function(timesheet){
-			app.timesheet = timesheet;
-		});
-	},500);
+	window.setTimeout(refresh_spreadsheet,500);
 
 	message('init_task_details');
 	$('body').on('input','#task_name,#task_tags',function(event){
-		message('task_change',get_task_object());
+		message('task_change',get_task_object(),refresh_spreadsheet); //callback won't fire hmmmmmm
 	});
 	
 	$('body').on('click','#task_start',function(event){
-		message('task_play',get_task_object());
+		message('task_play',get_task_object(),refresh_spreadsheet);
 	});
 
 	$('body').on('click','#task_stop',function(event){
-		message('task_stop',get_task_object());
+		message('task_stop',get_task_object(),refresh_spreadsheet);
 	});
 	$('body').on('click','#task_pause',function(event){
-		message('task_pause',get_task_object());
+		message('task_pause',get_task_object(),refresh_spreadsheet);
 	});
 }

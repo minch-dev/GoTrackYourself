@@ -13,9 +13,10 @@ chrome.runtime.onMessage.addListener(
 	}
 );
 function message(action,params,callback){
-	if(typeof callback !== 'function'){
-		callback = nothing;
-	}
+
+	//if(typeof callback !== 'function'){
+	//	var callback = nothing;
+	//}
 	if(typeof params === 'undefined'){
 		params = {};
 	}
@@ -23,6 +24,7 @@ function message(action,params,callback){
 		if (chrome.runtime.lastError) { //needed for chrome to shut up
 			console.log('establishing extension connections');
 		} else {
+			console.log(typeof callback);
 			callback(response);
 		}
 	});
