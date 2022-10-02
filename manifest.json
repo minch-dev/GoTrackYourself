@@ -11,7 +11,7 @@
 	"content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
     "browser_action": {
         "default_title": "Go",
-        "default_icon": "images/play.png",
+        "default_icon": "images/stop.png",
         "default_popup": "pop.htm"
     }
     
